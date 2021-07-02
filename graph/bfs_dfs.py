@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 class Graph:
 
     def __init__(self):
@@ -29,6 +30,20 @@ class Graph:
 
         print('sol', sol)
 
+    def dfs(self, u):
+        q = []
+        seen = []
+        sol = []
+        q.append(u)
+        seen.append(u)
+        while len(q) > 0:
+            node = q.pop()
+            sol.append(node)
+            for t in self.graph[node]:
+                if t not in seen:
+                    q.append(t)
+                    seen.append(t)
+        print('sol', sol)
 
 if __name__ == '__main__':
     g = Graph()
@@ -41,3 +56,4 @@ if __name__ == '__main__':
 
     g.print_graph()
     g.bfs('A')
+    g.dfs('A')
