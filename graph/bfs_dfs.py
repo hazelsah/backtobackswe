@@ -6,7 +6,7 @@ class Graph:
     def __init__(self):
         self.graph = defaultdict(list)
 
-    def addEdge(self, u, vs):
+    def add_edge(self, u, vs):
         for v in vs:
             self.graph[u].append(v)
 
@@ -47,12 +47,12 @@ class Graph:
 
 if __name__ == '__main__':
     g = Graph()
-    g.addEdge('A', ['B', 'J', 'G'])
-    g.addEdge('B', ['A', 'D'])
-    g.addEdge('D', ['B', 'J', 'H'])
-    g.addEdge('J', ['D', 'A', 'G'])
-    g.addEdge('G', ['A', 'F', 'E', 'J'])
-    g.addEdge('F', ['H', 'I', 'G', 'E'])
+    g.add_edge('A', ['B', 'J', 'G'])
+    g.add_edge('B', ['A', 'D'])
+    g.add_edge('D', ['B', 'J', 'H'])
+    g.add_edge('J', ['D', 'A', 'G'])
+    g.add_edge('G', ['A', 'F', 'E', 'J'])
+    g.add_edge('F', ['H', 'I', 'G', 'E'])
 
     g.print_graph()
     g.bfs('A')
