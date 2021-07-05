@@ -14,6 +14,7 @@ class Graph:
         for v in self.graph:
             print(v, self.graph[v])
 
+    # uses queue
     def bfs(self, u):
         q = []
         seen = []
@@ -21,6 +22,7 @@ class Graph:
         q.append(u)
         seen.append(u)
         while len(q) > 0:
+            # dequeue
             node = q.pop(0)
             sol.append(node)
             for t in self.graph[node]:
@@ -30,20 +32,22 @@ class Graph:
 
         print('sol', sol)
 
+    # uses stack
     def dfs(self, u):
-        q = []
+        s = []
         seen = []
         sol = []
-        q.append(u)
+        s.append(u)
         seen.append(u)
-        while len(q) > 0:
-            node = q.pop()
+        while len(s) > 0:
+            node = s.pop()
             sol.append(node)
             for t in self.graph[node]:
                 if t not in seen:
-                    q.append(t)
+                    s.append(t)
                     seen.append(t)
         print('sol', sol)
+
 
 if __name__ == '__main__':
     g = Graph()
